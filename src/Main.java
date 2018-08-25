@@ -3,11 +3,16 @@
  */
 public class Main {
     public static void main(String[] args){
-        String[] arr = new String[10];
+        Human[] humans = new Human[10];
+        HumanRouter humanRouter = new HumanRouter();
+        //String[] arr = new String[10];
         Menu menu= new Menu();
-        while (!menu.theEndProgram){
+
+        while (!humanRouter.theEndProgramm){
      menu.mainMenu();
-  arr = menu.route(arr);
+     humans = humanRouter.router(humans);
+  //arr = menu.route(arr);
+
     }
     }
 }
