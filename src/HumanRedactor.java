@@ -42,7 +42,7 @@ public class HumanRedactor {
     public Human foundId (Human[] humans, int id){
         Human human = null;
         for (Human human1 : humans) {
-            if(human1.getId()==id){
+            if((human1.getId()==id)&&(human1!=null)){
                 human=human1;
                 break;
             }
