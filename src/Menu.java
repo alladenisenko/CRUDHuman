@@ -13,7 +13,8 @@ public class Menu {
                 "r - read \n" +
                 "u - update \n" +
                 "d - delete \n" +
-                "exit - for finish program");
+                "sort - for sort array \n" +
+                "exit - for finish program ");
     }
     public String [] route (String[] arr){
         String comand = readConsoleValue();
@@ -80,4 +81,5 @@ public class Menu {
         return value;
 
     }
+
 }

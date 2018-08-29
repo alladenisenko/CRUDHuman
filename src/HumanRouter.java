@@ -17,7 +17,9 @@ boolean theEndProgramm=false;
                 humans=deleteHumanRouter(humans);
         } else if (command.equalsIgnoreCase("exit")){
             theEndProgramm=true;
-        } else{
+        } else if (command.equalsIgnoreCase("sort")){
+            humans=sortHumanRouter(humans);
+        } else  {
             System.out.println("Incorrect");
         }
 
@@ -54,8 +56,24 @@ boolean theEndProgramm=false;
         return humanRedactor.updateHuman(humans,human);
     }
     private Human[] deleteHumanRouter (Human[] humans){
+        Human human;
         System.out.println("enter id for delete Human");
-        return humanRedactor.deleteHuman(humans,Integer.parseInt(menu.readConsoleValue()));
+        human = humanRedactor.foundId(humans, Integer.parseInt(menu.readConsoleValue()));
+        if (human!=null){
+            humans = humanRedactor.deleteHuman(humans, human);
+        } else {
+            System.out.println("Incorrect id");
+        }
+        return humans;
+    }
+    private Human [] sortHumanRouter(Human[] humans){
+        System.out.println("Choose sort method\n" +
+                "id - sort by id");
+        String command=menu.readConsoleValue();
+        if (command.equalsIgnoreCase("id")){
+            humans = humanRedactor.sortHumanId(humans);
+        }
+        return humans;
     }
 
 }
